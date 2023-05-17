@@ -3,3 +3,5 @@
 .idea
 temp
 build
+Debug
+Release
