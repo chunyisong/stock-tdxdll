@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TCalcFuncSets.h"
 
-//Éú³ÉµÄdll¼°Ïà¹ØÒÀÀµdllÇë¿½±´µ½Í¨´ïĞÅ°²×°Ä¿Â¼µÄT0002/dlls/ÏÂÃæ,ÔÙÔÚ¹«Ê½¹ÜÀíÆ÷½øĞĞ°ó¶¨
+//ç”Ÿæˆçš„dllåŠç›¸å…³ä¾èµ–dllè¯·æ‹·è´åˆ°é€šè¾¾ä¿¡å®‰è£…ç›®å½•çš„T0002/dlls/ä¸‹é¢,å†åœ¨å…¬å¼ç®¡ç†å™¨è¿›è¡Œç»‘å®š
 
 void TestPlugin1(int DataLen,float* pfOUT,float* pfINa,float* pfINb,float* pfINc)
 {
@@ -19,7 +19,7 @@ void TestPlugin2(int DataLen,float* pfOUT,float* pfINa,float* pfINb,float* pfINc
 }
 
 
-//¼ÓÔØµÄº¯Êı
+//åŠ è½½çš„å‡½æ•°
 PluginTCalcFuncInfo g_CalcFuncSets[] = 
 {
 	{1,(pPluginFUNC)&TestPlugin1},
@@ -27,7 +27,7 @@ PluginTCalcFuncInfo g_CalcFuncSets[] =
 	{0,NULL},
 };
 
-//µ¼³ö¸øTCalcµÄ×¢²áº¯Êı
+//å¯¼å‡ºç»™TCalcçš„æ³¨å†Œå‡½æ•°
 BOOL RegisterTdxFunc(PluginTCalcFuncInfo** pFun)
 {
 	if(*pFun==NULL)

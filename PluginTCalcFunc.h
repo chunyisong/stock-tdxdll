@@ -2,13 +2,13 @@
 #define __PLUGIN_TCALC_FUNC
 #pragma pack(push,1) 
 
-//函数(数据个数,输出,输入a,输入b,输入c)
+//鍑芥暟(鏁版嵁涓暟,杈撳嚭,杈撳叆a,杈撳叆b,杈撳叆c)
 typedef void(*pPluginFUNC)(int,float*,float*,float*,float*);
 
 typedef struct tagPluginTCalcFuncInfo
 {
-	unsigned short		nFuncMark;//函数编号
-	pPluginFUNC			pCallFunc;//函数地址
+	unsigned short		nFuncMark;//鍑芥暟缂栧彿
+	pPluginFUNC			pCallFunc;//鍑芥暟鍦板潃
 }PluginTCalcFuncInfo;
 
 typedef BOOL(*pRegisterPluginFUNC)(PluginTCalcFuncInfo**);  
