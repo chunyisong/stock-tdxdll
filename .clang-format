@@ -1,0 +1,10 @@
+# C++ 语言
+Language: Cpp
+# 将左大括号放在语句末尾而不是独占一行
+BasedOnStyle: Chromium
+# 不自动重排 `#include`
+SortIncludes: false
+# 两空格缩进
+IndentWidth: 2
+# 一行最多 120 个字符
+ColumnLimit: 120
