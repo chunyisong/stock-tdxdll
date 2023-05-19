@@ -1,5 +1,4 @@
-#ifndef __PLUGIN_TCALC_FUNC
-#define __PLUGIN_TCALC_FUNC
+// 声明通达信 DLL 函数的头文件
 #pragma pack(push, 1)
 
 // 函数(数据个数,输出,输入a,输入b,输入c)
@@ -13,4 +12,3 @@ typedef struct tagPluginTCalcFuncInfo {
 typedef BOOL (*pRegisterPluginFUNC)(PluginTCalcFuncInfo**);
 
 #pragma pack(pop)
-#endif
