@@ -18,8 +18,8 @@ RJ 的通达信 dll 编程。
 
 ```shell
 # 使用 MinGW32 的 g++ 编译测试成功，-m32 参数设与不设编译出来的 dll，放到通达信实测都 OK
-g++ -shared -o build/TestPluginTCale.dll StdAfx.cpp TCalcFuncSets.cpp TestPluginTCale.cpp
-g++ -m32 -shared -o build/TestPluginTCale.dll StdAfx.cpp TCalcFuncSets.cpp TestPluginTCale.cpp
+g++ -shared -o build/FuncSets.dll FuncSets.cpp
+g++ -m32 -shared -o build/FuncSets.dll FuncSets.cpp
 ```
 
 > 源代码由 GBK 编码改为 UTF8 编码后，g++ 编译结果实测也 OK。\

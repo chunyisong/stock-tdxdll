@@ -1,7 +1,8 @@
 # 编译生成 dll 并复制到 TDX/T0002/dlls/ 的脚本
 
 # dll 文件名称
-dllFile="TestPluginTCale.dll"
+name="FuncSets"
+dllFile="$name.dll"
 
 # 创建 build 目录
 if [ ! -d "build" ]; then
@@ -11,7 +12,7 @@ fi
 
 # 执行编译
 echo "开始编译生成 dll ..."
-if g++ -shared -o "build/$dllFile" "StdAfx.cpp" "TCalcFuncSets.cpp" "TestPluginTCale.cpp"; then
+if g++ -shared -o "build/$dllFile" "$name.cpp"; then
   echo "编译成功，生成文件 build/$dllFile"
 
   # 第 1 个参数可以指定 TDX 的安装路径
@@ -35,7 +36,7 @@ if g++ -shared -o "build/$dllFile" "StdAfx.cpp" "TCalcFuncSets.cpp" "TestPluginT
 
   # 复制 dll
   if cp -f "build/$dllFile" "$tdxDir/T0002/dlls/"; then
-    echo "已复制 build/$dllFile 到 \$TDX/T0002/dlls/$dllFile，启动 TDX 即可使用此 dll"
+    echo "已复制 build/$dllFile 到 \$TDX/T0002/dlls/$dllFile，启动通达信然后在公式管理器中进行绑定即可"
   else
     echo "复制 dll 到 \$TDX/T0002/dlls 失败，通常如果 TDX 正在运行使用此 dll 就会导致复制失败，此时先关闭 TDX 再执行此脚本，通常都能解决问题"
   fi
