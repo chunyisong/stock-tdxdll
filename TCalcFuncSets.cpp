@@ -3,11 +3,13 @@
 #include <windows.h>
 #include "TCalcFuncSets.h"
 
+// 1 号函数
 void TestPlugin1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
   for (int i = 0; i < DataLen; i++)
-    pfOUT[i] = 8;
+    pfOUT[i] = i;
 }
 
+// 2 号函数
 void TestPlugin2(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
   for (int i = 0; i < DataLen; i++) {
     pfOUT[i] = pfINa[i] + pfINb[i] + pfINc[i];
