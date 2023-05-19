@@ -5,7 +5,7 @@
 
 void TestPlugin1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
   for (int i = 0; i < DataLen; i++)
-    pfOUT[i] = 5;
+    pfOUT[i] = 8;
 }
 
 void TestPlugin2(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
