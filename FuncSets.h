@@ -1,3 +1,5 @@
+#include <windows.h>
+
 // 这句删掉会导致通达信崩溃。
 // 默认情况下，编译器可能会在结构体成员之间插入填充字节，以便将它们对齐到字或双字边界，
 // 提高内存访问效率。但是，这样会浪费内存，并在与其他程序或系统共享数据结构时引发问题。
@@ -8,24 +10,19 @@
 
 // dll 函数声明
 // 参数为 (数据个数,输出,输入a,输入b,输入c)
-typedef void (*pPluginFUNC)(int, float*, float*, float*, float*);
+typedef void (*pFunc)(int, float*, float*, float*, float*);
 
 // 定义 dll 函数结构体并创建类型别名
-typedef struct tagPluginTCalcFuncInfo {
+typedef struct {
   unsigned short nFuncMark;  // 函数编号
-  pPluginFUNC pCallFunc;     // 函数地址
-} PluginTCalcFuncInfo;
+  pFunc pCallFunc;           // 函数地址
+} FuncInfo;
 
-// 如果是 C++ 编译环境才执行的代码块
-#ifdef __cplusplus
-
-// `extern "C"` 指定该函数应使用 C 风格的命名约定，
-// 这意味着该函数名不会被 C++ 编译器进行名称重整。
+// `extern "C"` 指定该函数应使用 C 风格的命名约定，使该函数名不会被 C++ 编译器进行名称重整。
+// 这是必须的，否则指标将不会有输出效果。
 extern "C" {
-// __declspec(dllexport) 关键字用于将函数从动态链接库（DLL）中导出，从而使通达信可以访问该函数。
-__declspec(dllexport) BOOL RegisterTdxFunc(PluginTCalcFuncInfo** pFun);
+// 将函数从动态链接库（DLL）中导出，从而使通达信可以访问到。
+__declspec(dllexport) BOOL RegisterTdxFunc(FuncInfo** pFun);
 }
-
-#endif
 
 #pragma pack(pop)
