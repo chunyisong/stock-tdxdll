@@ -1,11 +1,11 @@
 /*
 执行如下命令编译生成 dll 文件：
 ```
-g++ -shared -o build/FuncSets.dll FuncSets.cpp
+g++ -shared -o build/RJTDXFuncs.dll RJTDXFuncs.cpp
 ```
 生成的 dll拷贝到通达信安装目录下的 T0002/dlls/ 子目录下，再在公式管理器中进行绑定即可使用。
 */
-#include "FuncSets.h"
+#include "RJTDXFuncs.h"
 
 // 1 号函数
 void Func1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {

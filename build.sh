@@ -1,7 +1,7 @@
 # 编译生成 dll 并复制到 TDX/T0002/dlls/ 的脚本
 
 # dll 文件名称
-name="FuncSets"
+name="RJTDXFuncs"
 dllFile="$name.dll"
 
 # 创建 build 目录
