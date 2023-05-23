@@ -1,0 +1,30 @@
+#pragma code_page(65001)
+
+1 VERSIONINFO
+FILEVERSION     0,1,0,0
+PRODUCTVERSION  0,1,0,0
+FILEFLAGS 0x1L
+FILEOS 0x40004L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "@RJ<rongjih@163.com>"
+      VALUE "FileDescription", "RJ 的通达信 dll 函数集"
+      VALUE "FileVersion", "0.1.0.0"
+      VALUE "InternalName", "RJTDXFuncs"
+      VALUE "LegalCopyright", "@RJ<rongjih@163.com>"
+      VALUE "OriginalFilename", "RJTDXFuncs.dll"
+      VALUE "ProductName", "RJTDXFuncs"
+      VALUE "ProductVersion", "0.1.0.0"
+    END
+  END
+ 
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x809, 1252
+  END
+END

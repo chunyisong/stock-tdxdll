@@ -12,7 +12,7 @@ fi
 
 # 执行编译
 echo "开始编译生成 dll ..."
-if g++ -shared -o "build/$dllFile" "$name.cpp"; then
+if windres $name.rc -O coff -o build/$name.res && g++ -shared -o build/$dllFile $name.cpp build/$name.res; then
   echo "编译成功，生成文件 build/$dllFile"
 
   # 第 1 个参数可以指定 TDX 的安装路径
