@@ -41,7 +41,7 @@ TODO：实盘时间隔 ? 秒执行一次呢？
 */
 
 // 1 号函数
-void Func1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
+void Func1(int dataLen, float* out, float* kH, float* kL, float* _) {
   // 测试代码
   // 函数访问计数器
   static int num = 0;
@@ -49,25 +49,25 @@ void Func1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) 
   std::ofstream file("rj_debug.txt", std::ios::app);
   if (file.is_open()) {
     std::string time_str = getCurrentTime();
-    file << "Func1 " << std::to_string(num) << " " << std::to_string(DataLen) << " " << time_str << std::endl;
+    file << "Func1 " << std::to_string(num) << " " << std::to_string(dataLen) << " " << time_str << std::endl;
     file.close();
   }
 
   // 第一个 K 线无包含，值为 0
-  pfOUT[0] = 0;
+  out[0] = 0;
 
   // 找左侧第一根包含 K 的位置 N
-  for (int j = 1; j < DataLen; j++) {
-    float maxH = pfINa[j];
-    float minL = pfINb[j];
-    pfOUT[j] = 0; // 默认假设无包含
+  for (int j = 1; j < dataLen; j++) {
+    float maxH = kH[j];
+    float minL = kL[j];
+    out[j] = 0; // 默认假设无包含
     for (int i = j - 1; i >= 0; i--) {
-      maxH = max(pfINa[i], maxH); 
-      minL = min(pfINb[i], minL);
+      maxH = max(kH[i], maxH); 
+      minL = min(kL[i], minL);
       // Kj 的高低点都在 Ki 的高低点内且 i~j 之间的高低点也在 Ki 高低点内，则 Ki 包含 Kj
-      if (pfINa[i] >= pfINa[j] && pfINb[i] <= pfINb[j] && pfINa[i] >= maxH && pfINb[i] <= minL) {
+      if (kH[i] >= kH[j] && kL[i] <= kL[j] && kH[i] >= maxH && kL[i] <= minL) {
         // 记录为 i~j 之间的周期数
-        pfOUT[j] = j - i;
+        out[j] = j - i;
         break;
       }
     }
@@ -77,8 +77,7 @@ void Func1(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) 
 // 2 号函数
 void Func2(int DataLen, float* pfOUT, float* pfINa, float* pfINb, float* pfINc) {
   for (int i = 0; i < DataLen; i++) {
-    pfOUT[i] = pfINa[i] + pfINb[i] + pfINc[i];
-    pfOUT[i] = pfOUT[i] / 3;
+    pfOUT[i] = i;
   }
 }
 
